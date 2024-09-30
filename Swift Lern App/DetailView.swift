@@ -35,6 +35,8 @@ struct DetailView: View {
             }
             .padding()
         }
+        .navigationBarTitle(topic.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
