@@ -12,14 +12,28 @@ struct DetailView: View {
     let topic: Topic
     
     var body: some View {
-        VStack {
-            Text("Erklärung")
-                .font(.title)
-            Text(topic.explanation)
-                .font(.body)
-            Text("Kode-beispiel")
-            Text(topic.codeSnippet)
-                .font(.body)
+        
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Erklärung")
+                    .font(.title)
+                    .bold()
+                    
+                Text(topic.explanation)
+                    .font(.body)
+                    
+                Text("Code-beispiel")
+                    .font(.title)
+                    .bold()
+                
+                Text(topic.codeSnippet)
+                    .font(.system(size: 14, design: .monospaced))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+            .padding()
         }
     }
 }

@@ -12,9 +12,14 @@ struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
-        List {
-            ForEach(viewModel.topics, id:\.self) { topic in
-                Text(topic.title)
+        
+        NavigationStack {
+            List {
+                ForEach(viewModel.topics, id:\.self) { topic in
+                    NavigationLink(topic.title) {
+                        DetailView(topic: topic)
+                    }
+                }
             }
         }
     }
